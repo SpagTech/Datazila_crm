@@ -1,0 +1,27 @@
+<h2 class="text-blue-700" mat-dialog-title >Register Agent</h2>
+<mat-dialog-content>
+  <form [formGroup]="agentForm">
+    <div class="form-grid">
+      <mat-form-field class="full-width">
+        <mat-label>Agent Name</mat-label>
+        <input matInput formControlName="agentName">
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>Agent ID</mat-label>
+        <input matInput formControlName="agentId">
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>Date of Joining</mat-label>
+        <input matInput type="date" formControlName="joiningDate">
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>Team Name</mat-label>
+        <input matInput formControlName="teamName">
+      </mat-form-field>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button (click)="onRegister()">Register</button>
+</mat-dialog-actions>

@@ -1,0 +1,59 @@
+<section class="">
+<div class="flex items-start justify-center gap-4 p-4  h-full">
+    <!-- First Input Field -->
+    <input type="text" placeholder="Team Name" class="border rounded px-2 py-1">
+  
+    <!-- Second Input Field -->
+    <input type="text" placeholder="Agent Name" class="border rounded px-2 py-1">
+  
+    <!-- Dropdown for Third Input Field -->
+    <div class="relative">
+      <select class="border rounded px-2 py-1 appearance-none pr-8">
+        <option value="" class="text-blue-700" disabled selected>Campaign</option>
+        <option value="option1">Team - 1</option>
+        <option value="option2">Team - 1</option>
+        <option value="option3">Team - 1</option>
+      </select>
+      <!-- Dropdown Icon -->
+      <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2 text-gray-700">
+        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+          <path
+            d="M7.293 11.293a1 1 0 0 1 1.414 0l4 4a1 1 0 1 1-1.414 1.414l-4-4a1 1 0 0 1 0-1.414z" />
+        </svg>
+      </div>
+    </div>
+  
+    <!-- Search Icon -->
+    <button class="flex items-center px-3 py-1 border rounded bg-blue-500 text-white hover:bg-blue-600">
+      <svg class="text-gray-200 h-5 w-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M21 19l-6-6v-7a5 5 0 0 0-10 0v7l-6 6a1 1 0 0 0 0 1 1 1 0 0 0 .707.293l5.146-5.147A3 3 0 0 1 12 15a3 3 0 0 1 2.121.879l5.146 5.147a1 1 0 0 0 .707.293 1 1 0 0 0 .707-1z"
+          fill="currentColor" />
+      </svg>
+    </button>
+  </div>
+
+  <section>
+    <div class="p-2">
+      <table class="min-w-full bg-white">
+        <thead class="bg-blue-800 text-white">
+          <tr>
+            <th class="w-1/12 px-4 py-2">S.No</th>
+            <th class="w-2/12 px-4 py-2">Team Name</th>
+            <th class="w-2/12 px-4 py-2">Agent Name</th>
+           
+            <th class="w-1/12 px-4 py-2">Campaign</th>
+          </tr>
+        </thead>
+         <tbody>
+          <tr  class="text-gray-700">
+            <td class="border px-4 py-2"></td>
+            <td class="border px-4 py-2"></td>
+            <td class="border px-4 py-2"></td>
+            <td class="border px-4 py-2"></td>
+
+          </tr>
+        </tbody> 
+      </table>
+    </div>
+  </section>
+</section>

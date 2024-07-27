@@ -1,0 +1,14 @@
+/* agent-register-modal.component.css or agent-register-modal.component.scss */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns with equal width */
+    gap: 16px; /* Adjust the gap between grid items */
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  .mat-dialog-title{
+    color: blue;
+  }

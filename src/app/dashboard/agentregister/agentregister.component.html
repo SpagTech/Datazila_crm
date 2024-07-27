@@ -1,0 +1,54 @@
+<section class=" h-full">
+<div class="p-4 justify-center gap-4 flex ">
+    <div class="mb-4">
+      <label class="block text-sm font-medium text-gray-700">From Date</label>
+      <input type="date" [(ngModel)]="fromDate" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+    </div>
+    <div class="mb-4">
+      <label class="block text-sm font-medium text-gray-700">To Date</label>
+      <input type="date" [(ngModel)]="toDate" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+    </div>
+    <div class="mb-4">
+      <label class="block text-sm font-medium text-gray-700">Team</label>
+      <select [(ngModel)]="selectedTeam" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+        <option value="">Select Team</option>
+        <option *ngFor="let team of teams" [value]="team">{{ team }}</option>
+      </select>
+    </div>
+    <button (click)="filterAgents()" class="h-9 bg-blue-800 text-white py-2 mt-6 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 flex items-center justify-center">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35m2.35-7.65a8 8 0 11-16 0 8 8 0 0116 0z" />
+      </svg>
+      
+    </button>
+   <!-- Register Button -->
+<button (click)="openModal()" class="bg-blue-800 h-9 mt-6 w-auto rounded-lg text-white py-1 px-4">
+  Register
+</button>
+  </div>
+  
+  <div class="mt-6">
+    <table class="min-w-full bg-white">
+      <thead class="bg-blue-800 text-white">
+        <tr>
+          <th class="w-1/12 px-4 py-2">S.No</th>
+          <th class="w-2/12 px-4 py-2">Agent Name</th>
+          <th class="w-2/12 px-4 py-2">Agent ID</th>
+          <th class="w-2/12 px-4 py-2">Joining Date</th>
+          <th class="w-2/12 px-4 py-2">Team Name</th>
+          <th class="w-1/12 px-4 py-2">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let agent of filteredAgents; let i = index" class="text-gray-700">
+          <td class="border px-4 py-2">{{ i + 1 }}</td>
+          <td class="border px-4 py-2">{{ agent.agentName }}</td>
+          <td class="border px-4 py-2">{{ agent.agentId }}</td>
+          <td class="border px-4 py-2">{{ agent.joiningDate | date }}</td>
+          <td class="border px-4 py-2">{{ agent.teamName }}</td>
+          <td class="border px-4 py-2"><button class="bg-green-500 p-1 rounded-full font-medium text-white "> {{ agent.status }} </button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
