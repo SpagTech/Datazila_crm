@@ -4,24 +4,23 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-teamlogin',
   templateUrl: './teamlogin.component.html',
-  styleUrl: './teamlogin.component.css'
+  styleUrls: ['./teamlogin.component.css']
 })
 export class TeamloginComponent {
-  username: string = '';
-  password: string = '';
+  teamName: string = '';
+  teamID: string = '';
 
   constructor(private router: Router) {}
 
   onSubmit() {
-    const isAuthenticated = this.username === 'team' && this.password === 'team'; 
+    const isAuthenticated = this.teamName === 'team' && this.teamID === 'team'; 
 
     if (isAuthenticated) {
-      localStorage.setItem('isAuthenticate', 'true');
+      localStorage.setItem('isAuthenticated', 'true');
       localStorage.setItem('role', 'team');
       this.router.navigate(['/team-dashboard']);
     } else {
       console.log('Authentication failed!');
     }
   }
-
 }

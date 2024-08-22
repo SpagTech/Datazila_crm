@@ -22,6 +22,8 @@ import { AgentRegisterModalComponent } from './dashboard/agent-register-modal/ag
 import { MatGridListModule } from '@angular/material/grid-list';
 import { TeamwiseComponent } from './dashboard/teamwise/teamwise.component';
 import { TeamDashboardComponent } from './team_dashboard/team-dashboard/team-dashboard.component';
+import { TeamsidenaveComponent } from './team_dashboard/teamsidenave/teamsidenave.component';
+import { TeamwisereportComponent } from './team_dashboard/teamwisereport/teamwisereport.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { TeamDashboardComponent } from './team_dashboard/team-dashboard/team-das
     TeamreportComponent,
     SidenavComponent,
     TeamwiseComponent,
-    TeamDashboardComponent
+    TeamDashboardComponent,
+    TeamsidenaveComponent,
+    TeamwisereportComponent
   ],
   imports: [
     BrowserModule,

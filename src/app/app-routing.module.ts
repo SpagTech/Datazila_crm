@@ -11,6 +11,8 @@ import { AuthGuard } from './auth/auth.guard';
 import { SidenavComponent } from './dashboard/sidenav/sidenav.component';
 import { TeamwiseComponent } from './dashboard/teamwise/teamwise.component';
 import { TeamDashboardComponent } from './team_dashboard/team-dashboard/team-dashboard.component';
+import { TeamsidenaveComponent } from './team_dashboard/teamsidenave/teamsidenave.component';
+import { TeamwisereportComponent } from './team_dashboard/teamwisereport/teamwisereport.component';
  
 
 const routes: Routes = [
@@ -31,15 +33,17 @@ const routes: Routes = [
       { path: 'teamwise', component: TeamwiseComponent}
     ]
   },
-  // {
-  //   path: 'team-dashboard',
-  //   component: TeamDashboardComponent,
-  //   canActivate:[AuthGuard],
-  // },
-      // {
-      //   path:'', redirectTo: 'adminlogin'
-      // },
-    
+  {
+    path: 'team-dashboard',
+    component: TeamDashboardComponent,
+    canActivate: [AuthGuard],
+    children: [
+      { path: '', redirectTo: 'teamsidenave', pathMatch: 'full' },
+      {path: 'teamsidenave', component:TeamsidenaveComponent},
+      {path: 'teamwisereport', component:TeamwisereportComponent}
+      // Add more team-specific routes here if necessary
+    ]
+  },
     
   
   { path: '**', redirectTo: 'adminlogin' } 

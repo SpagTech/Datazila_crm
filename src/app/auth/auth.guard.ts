@@ -10,24 +10,26 @@ export class AuthGuard implements CanActivate {
 
   constructor(private router: Router) {}
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    const isAuthenticated = localStorage.getItem('isAuthenticated');
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree {
+    const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
     const role = localStorage.getItem('role');
 
     if (isAuthenticated) {
-     
-      if (state.url.startsWith('/dashboard') && role === 'admin') {
-        return true;
-      } else if (state.url.startsWith('/team-dashboard') && role === 'team') {
-        return true;
+      if (role === 'admin' && state.url.startsWith('/dashboard')) {
+        return true;  // Allow access to admin routes
+      } else if (role === 'team' && state.url.startsWith('/team-dashboard')) {
+        return true;  // Allow access to team routes
       } else {
-        this.router.navigate(['/adminlogin']);
-        return false;
+        // Redirect based on the role
+        if (role === 'admin') {
+          return this.router.parseUrl('/dashboard');
+        } else if (role === 'team') {
+          return this.router.parseUrl('/team-dashboard');
+        }
       }
-    } else {
-      this.router.navigate(['/adminlogin']);
-      return false;
     }
+    
+    // Redirect to the appropriate login page if not authenticated
+    return this.router.parseUrl('/adminlogin');
   }
 }
-
